@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoRisk - Servicios</title>
+  <!-- Importación de fuentes: Roboto para el texto general y Lato para botones y enlaces -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       VARIABLES Y REGLAS BASE (Global)
+       ========================================= */
+    :root {
+      --primary-color: #444;         /* Gris oscuro */
+      --secondary-color: #FFD700;      /* Amarillo brillante */
+      --background-color: #222;        /* Fondo oscuro base */
+      --light-bg: #e0e0e0;             /* Gris claro para bloques de contenido */
+      --title-color: #e0e0e0;             /* Color para los títulos */
+    }
+    
+    /* Reset de márgenes y padding */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    /* =========================================
+       ESTILOS GENERALES DEL BODY
+       Se asigna la fuente, color y fondo base. Se utiliza un pseudo-elemento para colocar la imagen
+       "IMAGEN2.jpg" como fondo global de la página, cubriendo toda la ventana.
+       ========================================= */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+    
+    /* PSEUDO-ELEMENTO para fondo global: 
+       La imagen "IMAGEN2.jpg" se mostrará detrás de todo el contenido, cubriendo toda la ventana.
+       Se usa position: fixed y z-index: -1 para lograr este efecto.
+    */
+    body::before {
+      content: "";
+      position: fixed;     /* Cubre toda la ventana incluso al hacer scroll */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('766.jpg') center/cover no-repeat;
+      opacity: 0.3;        /* Ajusta la transparencia de la imagen */
+      z-index: -1;         /* Coloca la imagen detrás de todo el contenido */
+    }
+    
+    /* =========================================
+       HEADER: Solo logo centrado
+       ========================================= */
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    header img { 
+      height: 40px; 
+    }
+    
+    /* =========================================
+       MAIN: Contenedor principal de Servicios
+       Se centra el contenido dentro de un ancho máximo.
+       ========================================= */
+    main {
+      margin-top: 60px;
+      padding: 45px 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* =========================================
+       TÍTULO (h2)
+       Estilo para el título con color, borde inferior y animación de entrada.
+       ========================================= */
+    h2 {
+      color: var(--title-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      animation: textFadeIn 1s ease-out forwards;
+	test_shadow:2px 2px 4px rgba(0, 0, 0, 0.3);  /* Sombra leve añadida */
+
+    }
+    
+    /* =========================================
+       BLOQUE DE CONTENIDO (.content-block)
+       Agrupa la información textual con fondo claro, padding, bordes redondeados y sombra leve.
+       ========================================= */
+    .content-block {
+      background: var(--light-bg);
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    /* Aumento de interlineado en bullet points */
+    li {
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+    
+    /* =========================================
+       ANIMACIÓN: Aparece el texto suavemente
+       ========================================= */
+    @keyframes textFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* =========================================
+       FILA DE ACCIÓN: Botón "Volver al Inicio" y navegación interna
+       Organiza el botón y los enlaces para navegación.
+       ========================================= */
+    .action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .btn, .internal-nav a {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 1em;
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+    }
+    
+    .btn:hover, .internal-nav a:hover {
+      background-color: var(--secondary-color);
+      color: var(--background-color);
+      transform: scale(1.05);
+    }
+    
+    .btn:active, .internal-nav a:active { 
+      transform: scale(0.95); 
+    }
+    
+    .internal-nav { 
+      display: flex; 
+      gap: 10px; 
+    }
+    
+    @media (max-width: 768px) {
+      .action-row { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER: Solo logo centrado -->
+  <header>
+    <img src="logonorisk.png" alt="NoRisk Logo">
+  </header>
+  
+  <!-- MAIN: Contenido principal de Servicios -->
+  <main>
+    <h2>Nuestros Servicios</h2>
+    <div class="content-block">
+      <p>
+        En <b>NoRisk</b>, ayudamos a empresas a optimizar y expandir su negocio en el sector de Equipos de Protección Personal (EPP) en Latinoamérica.
+      </p>
+<br>
+
+      <ul>
+        <li><b>Análisis empresarial y de mercado:</b> Evaluamos tu compañía, clientes, oferta y oportunidades de crecimiento.</li>
+        <li><b>Desarrollo de productos ganadores:</b> Potenciamos tu catálogo con productos de alto impacto.</li>
+        <li><b>Conexión con fábricas estratégicas:</b> Seleccionamos proveedores según capacidad, innovación y certificaciones.</li>
+        <li><b>Optimización de compras y logística:</b> Consolidamos pedidos y mejoramos la eficiencia en envíos.</li>
+        <li><b>Asesoría técnica y acompañamiento:</b> Brindamos soporte en terreno para fortalecer la seguridad y cumplimiento normativo.</li>
+        <li><b>Capacitación para equipos de venta:</b> Preparamos a tu equipo con conocimientos clave sobre normativas y productos.</li>
+        <li><b>Catálogo de productos EPP:</b> Ofrecemos soluciones complementarias para potenciar tu oferta.</li>
+      </ul>
+    </div>
+    <!-- FILA DE ACCIÓN: Botón "Volver al Inicio" y navegación interna -->
+    <div class="action-row">
+      <button class="btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
+      <div class="internal-nav">
+        <a href="about.html">Quiénes Somos</a>
+        <a href="contact.html">Contacto</a>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    // Registro en la consola al hacer clic en el botón "Volver al Inicio"
+    document.querySelector('.btn').addEventListener('click', function() {
+      console.log('Volver al Inicio clickeado desde Servicios');
+    });
+  </script>
+</body>
+</html>

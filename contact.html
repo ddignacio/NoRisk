@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoRisk - Contacto</title>
+  <!-- Importación de fuentes: Roboto para el texto general y Lato para botones y enlaces -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Outlined para smartphone y carta -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=call,mail" />
+  
+  <style>
+    /* =========================================
+       VARIABLES Y REGLAS BASE (Global)
+       ========================================= */
+    :root {
+      --primary-color: #444;        /* Gris oscuro */
+      --secondary-color: #FFD700;     /* Amarillo brillante */
+      --background-color: #222;       /* Fondo oscuro base */
+      --light-bg: #e0e0e0;            /* Gris claro para bloques de contenido */
+      --title-color: #e0e0e0;            /* Color para los títulos */
+    }
+    
+    /* Reset básico de márgenes y padding */
+    * {  
+      box-sizing: border-box;  
+      margin: 0;  
+      padding: 0;  
+    }
+    
+    /* =========================================
+       ESTILOS GENERALES DEL BODY
+       Se asigna la fuente y el color; se define un fondo base en caso de fallo,
+       y luego se agrega la imagen de fondo a través de un pseudo-elemento.
+       ========================================= */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+    
+    /* =========================================
+       PSEUDO-ELEMENTO DEL BODY: Imagen de fondo global
+       Se usa para que la imagen "IMAGEN.JPG" cubra toda la página, incluso al hacer scroll.
+       La propiedad 'opacity' se utiliza para ajustar la transparencia.
+       ========================================= */
+    body::before {
+      content: "";
+      position: fixed;  /* Cubre toda la ventana, incluso al hacer scroll */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('15773.jpg') center/cover no-repeat;
+      opacity: 0.4;     /* Ajusta la opacidad según tus preferencias */
+      z-index: -1;      /* Se coloca detrás de todo el contenido */
+    }
+    
+    /* =========================================
+       HEADER: Solo logo centrado
+       ========================================= */
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    header img {
+      height: 40px;
+    }
+    
+    /* =========================================
+       MAIN: Contenido principal de la página Contacto
+       ========================================= */
+    main {
+      margin-top: 80px;
+      padding: 100px 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* =========================================
+       TÍTULO (h2)
+       Estilo para el título de la sección con animación y borde inferior.
+       ========================================= */
+    h2 {
+      color: var(--title-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      animation: textFadeIn 1s ease-out forwards;
+2px 2px 4px rgba(0, 0, 0, 0.3);  /* Sombra leve añadida */
+
+    }
+    
+    /* =========================================
+       BLOQUE DE CONTENIDO (.content-block)
+       Agrupa la información con un fondo claro, padding y bordes redondeados.
+       ========================================= */
+    .content-block {
+      background: var(--light-bg);
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    /* =========================================
+       ANIMACIÓN: Aparece el texto suavemente
+       ========================================= */
+    @keyframes textFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* =========================================
+       ÍCONOS DE CONTACTO
+       Estilos para los íconos y enlaces en la sección de contacto.
+       ========================================= */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.1em;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    /* Estilo compartido para íconos (Material Symbols) */
+    .contact-item .material-symbols-outlined {
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+    
+    .contact-item .material-symbols-outlined:hover {
+      transform: scale(1.1);
+      color: var(--secondary-color);
+    }
+    
+    .contact-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.3s ease;
+    }
+    
+    .contact-item a:hover {
+      border-bottom: 1px solid var(--primary-color);
+    }
+    
+    /* =========================================
+       FILA DE ACCIÓN: Botón y navegación interna
+       Organiza el botón "Volver al Inicio" y los enlaces de navegación.
+       ========================================= */
+    .action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .btn, .internal-nav a {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 1em;
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+    }
+    
+    .btn:hover, .internal-nav a:hover {
+      background-color: var(--secondary-color);
+      color: var(--background-color);
+      transform: scale(1.05);
+    }
+    
+    .btn:active, .internal-nav a:active {
+      transform: scale(0.95);
+    }
+    
+    .internal-nav {
+      display: flex;
+      gap: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .action-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER: Solo logo centrado -->
+  <header>
+    <img src="logonorisk.png" alt="NoRisk Logo">
+  </header>
+  
+  <!-- MAIN: Contenido principal de Contacto -->
+  <main>
+    <h2>Contacto</h2>
+    <div class="content-block contact-info">
+      <p><b>¿Quieres optimizar y expandir tu negocio de EPP?</b></p>
+      <p>Para más información utiliza alguno de nuestros medios de contacto.</p>
+      <div class="contact-item">
+        <!-- Ícono de teléfono -->
+        <span class="material-symbols-outlined">call</span>
+        <a href="tel:+56912345678">+56 9 1234 5678</a>
+      </div>
+      <div class="contact-item">
+        <!-- Ícono de carta (envelope) -->
+        <span class="material-symbols-outlined">mail</span>
+        <a href="mailto:SoporteNoRisk@NoRisk.cl">SoporteNoRisk@NoRisk.cl</a>
+      </div>
+    </div>
+    <!-- FILA DE ACCIÓN: Botón "Volver al Inicio" y navegación interna -->
+    <div class="action-row">
+      <button class="btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
+      <div class="internal-nav">
+        <a href="services.html">Servicios</a>
+        <a href="about.html">Quiénes Somos</a>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    // Registro en la consola al hacer clic en el botón "Volver al Inicio"
+    document.querySelector('.btn').addEventListener('click', function() {
+      console.log('Volver al Inicio clickeado desde Contacto');
+    });
+  </script>
+</body>
+</html>
